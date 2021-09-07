@@ -19,6 +19,8 @@ public class Car {
     private String model;
     private String make;
     private String vin;
+    private String fuelType;
     private long mileage;
-    private short availability;
+    private int availability;
+
 }
