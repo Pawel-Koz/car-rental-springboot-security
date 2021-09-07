@@ -13,7 +13,7 @@ import java.security.Principal;
 
 @Controller
 @AllArgsConstructor
-@SessionAttributes("appUser")
+//@SessionAttributes("appUser")
 public class UserController {
     private final UserService userService;
 
@@ -49,7 +49,7 @@ public class UserController {
             return "hello-user";
         } else {
             if(userToCheck!=null){
-                bindingResult.rejectValue("name", "error.appuser", "taki uzytkownik juz istnieje");
+                bindingResult.rejectValue("username", "error.user", "taki uzytkownik juz istnieje");
                 return "sign-up";
             }
             return "sign-up";

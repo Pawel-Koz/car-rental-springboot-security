@@ -24,6 +24,7 @@ public class CarServiceImpl implements CarService {
             car.setAvailability(1);
             car.setVin(carDto.getVin());
             car.setFuelType(carDto.getFuelType());
+            car.setMileage(carDto.getMileage());
             carRepo.save(car);
         }
         return car;
