@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.pawkoz.carrentalspringbootsecurity.repository.AppUserRepo;
-@Service
 
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private AppUserRepo appUserRepo;

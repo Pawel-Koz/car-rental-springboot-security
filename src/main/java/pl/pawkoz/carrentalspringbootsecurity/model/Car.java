@@ -1,9 +1,6 @@
 package pl.pawkoz.carrentalspringbootsecurity.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +12,13 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Car {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String model;
     private String make;
+    private String vin;
+    private long mileage;
+    private short availability;
 }

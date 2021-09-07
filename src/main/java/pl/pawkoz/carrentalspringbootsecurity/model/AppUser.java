@@ -26,6 +26,7 @@ public class AppUser implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String username;
+    private String email;
     private String password;
     private String role;
 

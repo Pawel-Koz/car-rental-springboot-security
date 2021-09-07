@@ -22,7 +22,14 @@ public class Start {
         appUser2.setPassword(passwordEncoder.encode("Kuba123"));
         appUser2.setRole("ROLE_USER");
 
+        AppUser appUser3 = new AppUser();
+        appUser3.setUsername("Wojti");
+        appUser3.setPassword(passwordEncoder.encode("Wojti123"));
+        appUser3.setRole("ROLE_USER");
+
+
         appUserRepo.save(appUser);
         appUserRepo.save(appUser2);
+        appUserRepo.save(appUser3);
     }
 }
