@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import pl.pawkoz.carrentalspringbootsecurity.model.AppUser;
+import pl.pawkoz.carrentalspringbootsecurity.model.dto.UserDto;
 import pl.pawkoz.carrentalspringbootsecurity.repository.AppUserRepo;
 
 import java.util.List;
@@ -16,11 +17,16 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void addUser(AppUser appUser) {
-        appUser.setPassword(BCrypt.hashpw(appUser.getPassword(), BCrypt.gensalt()));
-        appUser.setRole("ROLE_USER");
-        userRepo.save(appUser);
-
+    public AppUser addUser(UserDto userDto) {
+        AppUser appUser = new AppUser();
+        if(userDto.getUsername()!=null && userDto.getEmail()!=null && userDto.getPassword()!=null){
+            appUser.setUsername(userDto.getUsername());
+            appUser.setPassword(BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt()));
+            appUser.setEmail(userDto.getEmail());
+            appUser.setRole("ROLE_USER");
+            userRepo.save(appUser);
+        }
+        return appUser;
     }
 
     @Override

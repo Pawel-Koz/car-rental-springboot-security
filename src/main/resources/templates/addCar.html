@@ -10,18 +10,18 @@
       th:action="@{/for-admin/addcar}"
       method="post">
     <div>
+        <label for="make">Make</label>
+        <input id="make" type="text"
+               th:field="*{make}">
+        <p th:if="${#fields.hasErrors('make')}"
+           th:text="${#strings.listJoin(#fields.errors('make'), ', ')}"></p>
+    </div>
+    <div>
         <label for="model">Model</label>
         <input id="model" type="text"
                th:field="*{model}">
         <p th:if="${#fields.hasErrors('model')}"
            th:text="${#strings.listJoin(#fields.errors('model'), ', ')}"></p>
-    </div>
-    <div>
-        <label for="make">make</label>
-        <input id="make" type="text"
-               th:field="*{make}">
-        <p th:if="${#fields.hasErrors('make')}"
-           th:text="${#strings.listJoin(#fields.errors('make'), ', ')}"></p>
     </div>
     <div>
         <label for="fuelType">Fuel Type</label>

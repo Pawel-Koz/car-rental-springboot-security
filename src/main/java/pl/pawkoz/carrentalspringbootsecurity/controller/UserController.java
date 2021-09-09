@@ -7,8 +7,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.pawkoz.carrentalspringbootsecurity.model.AppUser;
+import pl.pawkoz.carrentalspringbootsecurity.model.dto.UserDto;
 import pl.pawkoz.carrentalspringbootsecurity.service.UserService;
 
+import javax.validation.Valid;
 import java.security.Principal;
 
 @Controller
@@ -37,15 +39,15 @@ public class UserController {
 
     @GetMapping("/sign-up")
     public String signup(Model model) {
-        model.addAttribute("user", new AppUser());
+        model.addAttribute("userDto", new UserDto());
         return "sign-up";
     }
 
     @PostMapping("/register")
-    public String register( AppUser appUser, BindingResult bindingResult) {
-        AppUser userToCheck = userService.findByUsername(appUser.getUsername());
+    public String register(@Valid UserDto userDto, BindingResult bindingResult) {
+        AppUser userToCheck = userService.findByUsername(userDto.getUsername());
         if(!bindingResult.hasErrors() && userToCheck==null){
-            userService.addUser(appUser);
+            userService.addUser(userDto);
             return "hello-user";
         } else {
             if(userToCheck!=null){

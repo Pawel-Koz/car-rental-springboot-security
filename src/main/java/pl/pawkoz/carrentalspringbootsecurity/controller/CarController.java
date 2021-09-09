@@ -17,17 +17,16 @@ import javax.validation.Valid;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/for-admin")
 public class CarController {
     private final CarService service;
 
-    @GetMapping("/addcar")
+    @GetMapping("/for-admin/addcar")
     public String addCar(Model model){
         model.addAttribute("carDto", new CarDto());
         return "addCar";
     }
 
-    @PostMapping("/addcar")
+    @PostMapping("/for-admin/addcar")
     public String addCar(@Valid CarDto carDto, BindingResult result){
         Car carToCheck = service.showByVin(carDto.getVin());
         if(result.hasErrors() && carToCheck==null){
@@ -42,4 +41,19 @@ public class CarController {
         }
 
     }
+
+    @GetMapping("/for-admin/listcars")
+    public String listCars(Model model){
+        model.addAttribute("cars", service.showAll());
+        return "listCars";
+    }
+
+    @GetMapping("/for-user/listcars")
+    public String listCarsForUser(Model model){
+        model.addAttribute("cars", service.showAll());
+        return "listCars";
+    }
+    
+
+
 }

@@ -32,7 +32,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<Car> showAll() {
-        return null;
+        return carRepo.findAll();
     }
 
     @Override
