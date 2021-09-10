@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>List Cars</title>
-</head>
-<body>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Make</th>
-        <th>Model</th>
-        <th>VIN number</th>
-        <th>Fuel type</th>
-        <th>Mileage</th>
+  </head>
+  <body>
+    <table>
+      <tr>
+          <th>Id</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>VIN number</th>
+          <th>Fuel type</th>
+          <th>Mileage</th>
 
-    </tr>
-    <tr th:each="car : ${cars}">
-        <td th:text="${car.make}"></td>
-        <td th:text="${car.model}"></td>
-        <td th:text="${car.vin}"></td>
-        <td th:text="${car.fuelType}"></td>
-        <td th:text="${car.mileage}"></td>
-<!--        <td><a th:href="@{http://localhost:8080/for-admin/update/${car.id}">Update</a>-->
+      </tr>
+      <tr th:each="car : ${cars}">
+          <td th:text="${car.id}"></td>
+          <td th:text="${car.make}"></td>
+          <td th:text="${car.model}"></td>
+          <td th:text="${car.vin}"></td>
+          <td th:text="${car.fuelType}"></td>
+          <td th:text="${car.mileage}"></td>
+          <td><a th:href="@{/for-admin/update(id=${car.id})}">Update</a></td>
+<!--        <a th:href="@{/(id=${userId})}"> User [[${userId}]]</a>-->
 <!--            <a th:href="@{http://localhost:8080/for-admin/delete/${car.id}">Delete</a></td>-->
 
-    </tr>
-</table>
+      </tr>
+    </table>
+    <div>
+       <a th:href="@{/for-admin}">Main Panel</a>
+    </div>
 
-</body>
+  </body>
 </html>

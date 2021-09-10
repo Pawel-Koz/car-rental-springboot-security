@@ -28,8 +28,8 @@ public class Start {
         appUser3.setRole("ROLE_USER");
 
 
-        appUserRepo.save(appUser);
-        appUserRepo.save(appUser2);
-        appUserRepo.save(appUser3);
+//        appUserRepo.save(appUser);
+//        appUserRepo.save(appUser2);
+//        appUserRepo.save(appUser3);
     }
 }

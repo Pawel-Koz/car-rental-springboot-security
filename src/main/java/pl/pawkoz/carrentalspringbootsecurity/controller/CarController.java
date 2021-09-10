@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.pawkoz.carrentalspringbootsecurity.model.Car;
 import pl.pawkoz.carrentalspringbootsecurity.model.dto.CarDto;
 import pl.pawkoz.carrentalspringbootsecurity.service.CarService;
@@ -53,6 +50,23 @@ public class CarController {
         model.addAttribute("cars", service.showAll());
         return "listCars";
     }
+    @GetMapping("/for-admin/update")
+    public String updateCar(Model model, @RequestParam long id){
+        Car car = service.showById(id);
+        model.addAttribute("carDto", car);
+        return "addCar";
+    }
+    @PostMapping("/for-admin/update")
+    public String updateCar(@Valid CarDto carDto, BindingResult result){
+        if(!result.hasErrors()){
+            service.update(carDto);
+            return "listCars";
+        } else {
+            return "listCars";
+        }
+        //to fix - doesn't overwrite existing record, creates new one
+    }
+
     
 
 

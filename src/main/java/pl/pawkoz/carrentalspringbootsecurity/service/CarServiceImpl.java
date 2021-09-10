@@ -37,7 +37,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car showById(Long id) {
-        return null;
+        return carRepo.findById(id).orElse(null);
     }
 
     @Override
@@ -47,11 +47,21 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car update(CarDto carDto) {
-        return null;
+        Car car = carRepo.getById(carDto.getId());
+        if(carDto.getMake()!=null && carDto.getModel()!=null && carDto.getVin()!=null){
+            car.setMake(carDto.getMake());
+            car.setModel(carDto.getModel());
+            car.setVin(carDto.getVin());
+            car.setFuelType(carDto.getFuelType());
+            car.setMileage(carDto.getMileage());
+            carRepo.save(car);
+        }
+        return car;
     }
 
     @Override
     public void deleteById(Long id) {
+        carRepo.deleteById(id);
 
     }
 }
