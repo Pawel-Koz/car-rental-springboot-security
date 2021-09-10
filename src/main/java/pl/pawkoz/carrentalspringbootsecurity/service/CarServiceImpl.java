@@ -47,13 +47,14 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car update(CarDto carDto) {
-        Car car = carRepo.getById(carDto.getId());
+        Car car = carRepo.findById(carDto.getId()).orElse(null);
         if(carDto.getMake()!=null && carDto.getModel()!=null && carDto.getVin()!=null){
             car.setMake(carDto.getMake());
             car.setModel(carDto.getModel());
             car.setVin(carDto.getVin());
             car.setFuelType(carDto.getFuelType());
             car.setMileage(carDto.getMileage());
+            car.setAvailability(carDto.getAvailability());
             carRepo.save(car);
         }
         return car;

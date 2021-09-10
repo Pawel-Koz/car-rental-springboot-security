@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${carDto}"
+      th:action="@{/for-admin/update}"
+      method="post">
+  <div>
+    <label for="id">Id</label>
+    <input id="id" type="text"
+           th:field="*{id}">
+    <p th:if="${#fields.hasErrors('id')}"
+       th:text="${#strings.listJoin(#fields.errors('id'), ', ')}"></p>
+  </div>
+  <div>
+    <label for="make">Make</label>
+    <input id="make" type="text"
+           th:field="*{make}">
+    <p th:if="${#fields.hasErrors('make')}"
+       th:text="${#strings.listJoin(#fields.errors('make'), ', ')}"></p>
+  </div>
+  <div>
+    <label for="model">Model</label>
+    <input id="model" type="text"
+           th:field="*{model}">
+    <p th:if="${#fields.hasErrors('model')}"
+       th:text="${#strings.listJoin(#fields.errors('model'), ', ')}"></p>
+  </div>
+  <div>
+    <label for="fuelType">Fuel Type</label>
+    <input id="fuelType" type="text"
+           th:field="*{fuelType}">
+    <p th:if="${#fields.hasErrors('fuelType')}"
+       th:text="${#strings.listJoin(#fields.errors('fuelType'), ', ')}"></p>
+  </div>
+  <div>
+    <label for="vin">Vin number</label>
+    <input id="vin" type="text"
+           th:field="*{vin}">
+    <p th:if="${#fields.hasErrors('vin')}"
+       th:text="${#strings.listJoin(#fields.errors('vin'), ', ')}"></p>
+  </div>
+  <div>
+    <label for="mileage">Mileage</label>
+    <input id="mileage" type="text"
+           th:field="*{mileage}">
+    <p th:if="${#fields.hasErrors('mileage')}"
+       th:text="${#strings.listJoin(#fields.errors('mileage'), ', ')}"></p>
+  </div>
+  <div>
+    <label for="availability">Availability</label>
+    <input id="availability" type="text"
+           th:field="*{availability}">
+    <p th:if="${#fields.hasErrors('availability')}"
+       th:text="${#strings.listJoin(#fields.errors('availability'), ', ')}"></p>
+  </div>
+
+  <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

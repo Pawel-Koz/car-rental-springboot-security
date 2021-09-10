@@ -13,6 +13,7 @@
           <th>VIN number</th>
           <th>Fuel type</th>
           <th>Mileage</th>
+          <th>Availability</th>
 
       </tr>
       <tr th:each="car : ${cars}">
@@ -22,6 +23,7 @@
           <td th:text="${car.vin}"></td>
           <td th:text="${car.fuelType}"></td>
           <td th:text="${car.mileage}"></td>
+          <td th:text="${car.availability}"></td>
           <td><a th:href="@{/for-admin/update(id=${car.id})}">Update</a></td>
 <!--        <a th:href="@{/(id=${userId})}"> User [[${userId}]]</a>-->
 <!--            <a th:href="@{http://localhost:8080/for-admin/delete/${car.id}">Delete</a></td>-->

@@ -2,10 +2,7 @@ package pl.pawkoz.carrentalspringbootsecurity.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -15,6 +12,7 @@ import javax.persistence.Id;
 @ToString
 public class Car {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "BINARY(16)")
     private Long id;
     private String model;
     private String make;

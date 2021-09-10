@@ -28,5 +28,6 @@ public class CarDto {
 
     @NotNull
     private Long mileage;
+    private int availability;
 
 }

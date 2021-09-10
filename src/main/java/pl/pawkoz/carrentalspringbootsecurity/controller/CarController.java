@@ -54,17 +54,17 @@ public class CarController {
     public String updateCar(Model model, @RequestParam long id){
         Car car = service.showById(id);
         model.addAttribute("carDto", car);
-        return "addCar";
+        return "updateCar";
     }
     @PostMapping("/for-admin/update")
     public String updateCar(@Valid CarDto carDto, BindingResult result){
         if(!result.hasErrors()){
             service.update(carDto);
-            return "listCars";
+            return "hello-admin";
         } else {
-            return "listCars";
+            return "updateCar";
         }
-        //to fix - doesn't overwrite existing record, creates new one
+
     }
 
     
