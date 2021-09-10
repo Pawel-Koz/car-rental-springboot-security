@@ -24,9 +24,9 @@
           <td th:text="${car.fuelType}"></td>
           <td th:text="${car.mileage}"></td>
           <td th:text="${car.availability}"></td>
-          <td><a th:href="@{/for-admin/update(id=${car.id})}">Update</a></td>
+          <td><a th:href="@{/for-admin/update(id=${car.id})}">Update</a>
 <!--        <a th:href="@{/(id=${userId})}"> User [[${userId}]]</a>-->
-<!--            <a th:href="@{http://localhost:8080/for-admin/delete/${car.id}">Delete</a></td>-->
+            <a th:href="@{/for-admin/delete(id=${car.id})}">Delete</a></td>
 
       </tr>
     </table>

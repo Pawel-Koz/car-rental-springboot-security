@@ -64,8 +64,14 @@ public class CarController {
         } else {
             return "updateCar";
         }
-
     }
+
+    @GetMapping("/for-admin/delete")
+    public String remove(@RequestParam long id){
+        service.deleteById(id);
+        return "redirect:/for-admin/listcars";
+    }
+
 
     
 
